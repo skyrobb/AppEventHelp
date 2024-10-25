@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+    
     var willConnectCount = 0
     var didBecomeActiveCount = 0
     var willResignActiveCount = 0
@@ -28,6 +30,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func updateView() {
+        didFinishLaunchingLabel.text = "Did Finish Launching Count: \(appDelegate.launchCount)"
+        configurationForConnectingLabel.text = "Configuration For Connecting Count: \(appDelegate.configurationForConnectingCount)"
+        willConnectToLabel.text = "Will Connect To Count: \(willConnectCount)"
+        didBecomeActiveLabel.text = "Did Become Active Count: \(didBecomeActiveCount)"
+        willResignActiveLabel.text = "Will Resign Active Count: \(willResignActiveCount)"
+        willEnterForegroundLabel.text = "Will Enter Foreground Count: \(willEnterForegroundCount)"
+        didEnterBackgroundLabel.text = "Did Enter Background Count: \(didEnterBackgroundCount)"
+    }
 
 }
 
